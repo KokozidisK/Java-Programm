@@ -27,7 +27,7 @@ public class Car{
      * @param idcounter μετρητής κωδικών αυτοκινήτων
     */
     public Car(String plate,String brand,String type,String model,int year,String color,boolean avaliable){
-        this.plate=plate;
+        this.plate=plate.toUpperCase();
         this.brand=brand;
         this.type=type;
         this.model=model;

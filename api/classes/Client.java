@@ -5,8 +5,8 @@ package api.classes;
  */
 
  public class Client{
-    private int afm;
-    private String name,tel,email;
+    
+    private String afm,name,tel,email;
 
     /**
      * Κατασκευαστής της κλάσης Client 
@@ -16,7 +16,7 @@ package api.classes;
      * @param tel   Τηλέφωνο
      * @param email Ηλεκτρονικό ταχυδρομίο
      */
-    public Client(int afm,String name,String tel,String email){
+    public Client(String afm,String name,String tel,String email){
 
         this.afm=afm;
         this.name=name;
@@ -29,7 +29,7 @@ package api.classes;
      * 
      * @return ΑΦΜ
      */
-    public int getAfm(){
+    public String getAfm(){
         return afm;
     }
 
@@ -65,7 +65,7 @@ package api.classes;
      * 
      * @param am
      */
-    public void getAfm(int am){
+    public void getAfm(String am){
         this.afm=am;
     }
 
