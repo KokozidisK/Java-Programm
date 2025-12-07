@@ -13,7 +13,7 @@ public class CarList {
    * @param car
    * @return το ID του αμαξιου
    */
-  public int findIndex(Car car){
+  public int findId(Car car){
     return car.getId();
   }
 
@@ -68,7 +68,7 @@ public class CarList {
    * @param car
    */
   public void changePlate(Car car){
-    int index=findIndex(car);
+    int index=car.getId();
     Scanner scr=new Scanner(System.in);
     System.out.println("Give a new plate number: ");
     String plate=scr.next().toUpperCase();
@@ -95,7 +95,8 @@ public class CarList {
           plate=scr.next().toUpperCase();
         }
         else{
-          System.out.println("Given plate comply with the standard template");
+          System.out.println("Given plate complies with the standard template");
+          carList.get(index).setPlate(plate);
         }
       }
     }
@@ -104,34 +105,69 @@ public class CarList {
 
   /**
    * Μέθοδος που αλλάζει την μάρκα του αυτοκινήτου αν δεν υπάρχουν αριθμοί
+   * εφαρμόζοντας μια επαναληπτική διαδικασία που ελέγχει ένα προς ένα τα στοιχεία
+   * του String εισόδου,και αν περιέχει αριθμό εμφανίζει το κατάλληλο μήνυμα και
+   * ξαναζητά είσοδο
    * @param car
    */
   public void editBrand(Car car){
-    int index=findIndex(car);
+    int index=car.getId();
     Scanner scr=new Scanner(System.in);
     String brand;
-    boolean exists;
+    StringOps exists=new StringOps();
     
 
     do { 
-      exists=false;
       System.out.println("Please insert the new brand: ");
       brand=scr.next();
-      for(int i=0;i<brand.length();i++){
-        if(brand.charAt(i)>='0' && brand.charAt(i)<='9'){
-          exists=true;
-          System.out.println("Input contains number!");
-        }
-      }
-        
-    } while (exists);
+              
+    } while (exists.chechForDigit(brand));
 
     carList.get(index).setBrand(brand);
 
   }
 
+  /**
+   * Μέθοδος που αλλάζει τον τύπο του αυτοκινήτου ελέγχοντας αν υπάρχουν
+   * στοιχεία στην είσοδο που δίνεται
+   * @param car
+   */
+  public void editType(Car car){
+    int index=car.getId();
+    String type;
+    Scanner scr=new Scanner(System.in);
 
-  /*/  
+    type=scr.next();
+    StringOps f=new StringOps();
+
+    while(f.chechForDigit(type)){
+      System.out.println("Digit was inserted please try again: ");
+      type=scr.next();
+      
+    }
+
+    carList.get(index).setType(type);
+  }
+
+  public void editModel(Car car){
+    int index=car.getId();
+    String model;
+    Scanner scr=new Scanner(System.in);
+
+    model=scr.next();
+    StringOps flag=new StringOps();
+
+    while(flag.chechForDigit(model)){
+      System.out.println("Number was inserted, please give another model: ");
+      model=scr.next();
+    }
+    carList.get(index).setModel(model); 
+   
+  }
+  
+
+
+  /** 
   public static void main(String[] args) {
       Car car1=new Car("akn1342", "Toyota", "4x4", "SUV", 2020, "Red", true);
       Car car2=new Car("arn1342", "Nissan", "4x4", "SUV", 2020, "Red", true);
