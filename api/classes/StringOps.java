@@ -23,7 +23,7 @@ public class StringOps {
 
         for(int i=0;i<string.length();i++) {
             if(Character.isDigit(string.charAt(i))){
-                //System.out.println("Digit was insetred please give another type: ");
+                System.out.println("Digit was insetred please give another type: ");
                 return true;
                 
             }

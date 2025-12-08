@@ -164,6 +164,51 @@ public class CarList {
     carList.get(index).setModel(model); 
    
   }
+
+  /**
+   * Μέθοδος που αλλάζει την χρονία του αυτοκινήτου
+   * @param car
+   */
+  public void editYear(Car car){
+    int index=car.getId();
+    Scanner scr=new Scanner(System.in);
+    int year=scr.nextInt();
+
+    carList.get(index).setYear(year);
+  }
+
+  public void editColor(Car car){
+    int index=car.getId();
+    Scanner scr=new Scanner(System.in);
+
+    StringOps flag=new StringOps();
+    String color=scr.next();
+
+
+
+    while(flag.chechForDigit(color)){
+      color=scr.next();
+    }
+
+    carList.get(index).setColor(color);
+  }
+
+  /**
+   * Μέθοδος που αλλάζει την διαθεσιμότητα του αμαξιού που
+   * δέχεται ως είσοδο
+   * @param car
+   */
+  public void editAvaliability(Car car){
+    int index=car.getId();
+    Scanner scr=new Scanner(System.in);
+    boolean avlb;
+
+    System.out.println("FInsert the vaule 'true' if it is avaliable or 'false' if it isn't");
+    avlb=scr.nextBoolean();
+
+    carList.get(index).setAvaliability(avlb);
+
+  }
   
 
 
