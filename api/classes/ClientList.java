@@ -42,7 +42,10 @@ public class ClientList {
 
         clientList.get(afm).setName(name);
     }
-
+    /**
+     * Μέθοδος που αλλάζει το τηλέφωνο ενός πελάτη
+     * @param client
+     */
     public void editTel(Client client){
         String afm=client.getAfm();
         Scanner scr=new Scanner(System.in);
@@ -71,6 +74,21 @@ public class ClientList {
 
         clientList.get(afm).setTel(tel);
         
+    }
+
+    /**
+     * Μέθοδος που αλλάζει το email ενός πελάτη
+     * @param client
+     */
+    public void editEmail(Client client){
+        String afm=client.getAfm();
+        Scanner scr=new Scanner(System.in);
+
+        System.out.println("Please give a new email \n");
+        String email=scr.next();
+
+        clientList.get(afm).setEmail(email);
+
     }
     
 }

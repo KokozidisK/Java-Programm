@@ -209,6 +209,50 @@ public class CarList {
     carList.get(index).setAvaliability(avlb);
 
   }
+  /**
+   * Μέθοδος που ψάχνει ένα αμ´ξαι με βάση τα χαρακτηριστικά του. Αν ένα ή περισσότερα
+   * πεδία παραλείπονται,απο αυτά που θέλουμε να ψάξουμε, τότε δηλώνονται
+   * ως null. Δημιουργεί ένα αντικείμενο κλάσης {@code } Iterator για να πραγματοποιεί
+   * επαναλήψεις στα στοιχεία της carList ελέγχοντας αν τα πεδία των αντικείμένων της
+   * αντιστοιχουν σε αυτά που δίνονται ως είσοδο για την αναζήτηση. Έπειτα τα αντικείμενα 
+   * με τα κατάλληλα πεδία αποθηκεύονται σε μία νέα συλλογή,την objOfcarList για περεταίρω
+   * επεξεργασία.  
+   * @param year
+   * @param plate
+   * @param brand
+   * @param type
+   * @param model
+   * @param color
+   * @param avaliable
+   */
+  public void searchCar(int year,String plate,String brand,String type,String model,String color,boolean avaliable){
+    Iterator<Car> cars=carList.values().iterator(); //Συλλογή με τα αντικείμενα της λίστας των αυτοκινήτων 
+    Collection<Car> objOfcarList=new ArrayList<>();
+    List<Object> fields=new ArrayList<>();
+    fields.add(year);
+    fields.add(plate);
+    fields.add(brand);  
+    fields.add(type);
+    fields.add(model);
+    fields.add(color);
+    fields.add(avaliable); 
+
+    fields.removeIf(Objects::isNull);
+
+
+    while(cars.hasNext()){
+      boolean exists=false;
+      Car car=cars.next();
+      
+
+
+
+    }
+
+
+      
+    
+  }
   
 
 
